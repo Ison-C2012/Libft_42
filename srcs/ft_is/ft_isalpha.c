@@ -6,9 +6,11 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 20:25:07 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/16 20:39:24 by keitotak         ###   ########.fr       */
+/*   Updated: 2025/10/17 16:53:11 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isupper(int c)
 {

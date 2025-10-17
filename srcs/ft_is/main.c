@@ -1,8 +1,5 @@
 #include <stdio.h>
-
-int	ft_isalpha(int c);
-int	ft_isalnum(int c);
-int	ft_isascii(int c);
+#include "libft.h"
 
 int	main(void)
 {
