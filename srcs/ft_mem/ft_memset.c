@@ -6,11 +6,11 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 19:21:37 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/17 19:30:48 by keitotak         ###   ########.fr       */
+/*   Updated: 2025/10/17 22:28:45 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*memset(void *s, int c, size_t n)
+void	*ft_memset(void *s, int c, size_t n)
 {
 	size_t	i;
 
