@@ -6,11 +6,23 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 21:51:17 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/16 21:58:50 by keitotak         ###   ########.fr       */
+/*   Updated: 2025/10/19 00:54:47 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	void	
+	void	*c;
+
+	if (nmemb == 0 || size == 0)
+		return (NULL);
+	if (nmemb > ULONG_MAX / size)
+		return ();
+	c = (void *)malloc(nmemb * (size + 1));
+	if (c == NULL)
+		return NULL;
+	ft_bzero(c, size);
+	return (c);	
 }

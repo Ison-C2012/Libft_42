@@ -6,9 +6,11 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 12:02:08 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/18 13:37:30 by keitotak         ###   ########.fr       */
+/*   Updated: 2025/10/19 00:56:10 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
