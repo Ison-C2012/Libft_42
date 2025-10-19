@@ -6,7 +6,7 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 19:50:21 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/19 20:15:23 by keitotak         ###   ########.fr       */
+/*   Updated: 2025/10/20 00:21:57 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,3 +26,5 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
+
+/* n must not be greater than src_size. */
