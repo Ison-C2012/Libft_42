@@ -6,7 +6,7 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 00:53:36 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/19 18:30:49 by keitotak         ###   ########.fr       */
+/*   Updated: 2025/10/19 19:18:28 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,24 @@ static int	out_of_int(unsigned int nbr)
 	return (nbr > -INT_MIN);
 }
 
+static int	obtain_nb(int *nb, char c, int sg)
+{
+	if (*nb > INT_MAX / 10)
+		return (1);
+	if (*nb < INT_MIN / 10)
+		return (-1);
+	*nb *= 10;
+	if (*nb > INT_MAX - (c - '0'))
+		return (1);
+	if (*nb < INT_MIN + (c - '0'))
+		return (-1);
+	if (sg > 0)
+		*nb += c - '0';
+	else
+		*nb -= c - '0';
+	return (0);
+}
+
 int	ft_atoi(const char *nptr)
 {
 	unsigned int	nb;
@@ -44,13 +62,15 @@ int	ft_atoi(const char *nptr)
 	}
 	nb = 0;
 	while (ft_isnum(nptr[i]))
-		nb = nb * 10 + (nptr[i++] - '0');
-	if (out_of_int(nb))
 	{
-		if (sg > 0)
-			return (INT_MAX);
-		else
-			return (INT_MIN);
+		if (obtain_nb(&nb, nptr[i], sg) != 0)
+		{
+			if (sg > 0)
+				return (INT_MAX);
+			else
+				return (INT_MIN);
+		}
+		i++;
 	}
-	return (sg * nb);
+	return (nb);
 }

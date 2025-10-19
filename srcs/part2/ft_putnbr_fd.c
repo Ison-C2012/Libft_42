@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 19:31:00 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/19 00:34:40 by keitotak         ###   ########.fr       */
+/*   Created: 2025/10/19 19:43:03 by keitotak          #+#    #+#             */
+/*   Updated: 2025/10/19 19:46:28 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	*ft_memchr(const void *s, int c, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	i;
-
-	if (s == NULL)
-		return (NULL);
-	i = 0;
-	while (i < n)
-	{
-		if ((unsigned char)s[i] == (unsigned char)c)
-			return (&s[i]);
-	}
-	return (NULL);
+	if (n == INT_MIN)
+		ft_itoa(INT_MIN);
+	if (n < 0)
+		n *= -1;
+	if (n < 10)
+		ft_putchar_fd(n - '0', fd);
+	ft_putnbr_nd(n / 10);
+	ft_putnbr_nd(n % 10);
 }
