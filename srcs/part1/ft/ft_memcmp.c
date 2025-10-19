@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/16 21:51:17 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/19 00:54:47 by keitotak         ###   ########.fr       */
+/*   Created: 2025/10/17 20:39:33 by keitotak          #+#    #+#             */
+/*   Updated: 2025/10/20 00:30:12 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	void	*c;
+	unsigned char	*str1;
+	unsigned char	*str2;
+	size_t			i;
 
-	if (nmemb == 0 || size == 0)
-		return (NULL);
-	if (nmemb > ULONG_MAX / size)
-		return ();
-	c = (void *)malloc(nmemb * (size + 1));
-	if (c == NULL)
-		return NULL;
-	ft_bzero(c, size);
-	return (c);	
+	if (s1 == NULL || s2 == NULL)
+		return (0);
+	if (n == 0)
+		return (0);
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
+	i = 0;
+	while (i < n)
+	{
+		if (str1[i] != str2[i])
+			return (str1[i] - str2[i]);
+		i++;
+	}
+	return (0);
 }

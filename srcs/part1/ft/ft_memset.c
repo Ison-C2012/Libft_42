@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: keitotak <keitotak@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/18 00:22:03 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/19 00:56:24 by keitotak         ###   ########.fr       */
+/*   Created: 2025/10/17 19:21:37 by keitotak          #+#    #+#             */
+/*   Updated: 2025/10/20 00:43:07 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	*ft_memset(void *s, int c, size_t n)
 {
 	size_t	i;
 
-	if ((s1 == NULL) || (s2 == NULL))
-		return (0);
 	i = 0;
-	while (s1[i] && i < n)
-	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
-	}
-	return (s1[i] - s2[i]);
+	if (s == NULL)
+		return (NULL);
+	while (s[i] && i < n)
+		s[i++] = c;
+	return (s);
 }
