@@ -8,12 +8,21 @@
 int	main(void)
 {
 	char	**pp;
+	size_t	i;
 
 	pp = ft_split("hello,42,see,you,waseda", ',');
 	if (pp == NULL)
 		return (-1);
-	while (pp)
-		printf("%s\t", *pp++);
+	printf("%s\n", pp[0]);
+
+/*
+	i = 0;
+	while (pp[i])
+	{
+		printf("%s\t", pp[i]);
+		free(pp[i++]);
+	}
 	free(pp);
+*/
 	return (0);
 }

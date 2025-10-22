@@ -6,7 +6,7 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 19:43:03 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/20 19:54:39 by keitotak         ###   ########.fr       */
+/*   Updated: 2025/10/23 05:31:43 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_putnbr_fd(int n, int fd)
 {
 	if (n == INT_MIN)
-		ft_itoa(INT_MIN);
+		ft_putstr_fd("-2147483648", fd);
 	if (n < 0)
 		n *= -1;
 	if (n < 10)
