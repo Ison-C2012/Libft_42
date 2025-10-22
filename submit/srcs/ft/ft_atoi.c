@@ -6,7 +6,7 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 00:53:36 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/20 18:03:59 by keitotak         ###   ########.fr       */
+/*   Updated: 2025/10/22 14:37:33 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,6 @@ int	ft_atoi(const char *nptr)
 	if (nptr == NULL)
 		return (0);
 	while (ft_isspace(*nptr))
-		nptr++;
-	if (ft_issign(*nptr))
 		nptr++;
 	return (get_nb(nptr));
 }

@@ -6,23 +6,39 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 11:10:42 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/22 09:11:11 by keitotak         ###   ########.fr       */
+/*   Updated: 2025/10/22 21:45:20 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static size_t	get_len(size_t s_len, unsigned int start, size_t len)
+{
+	if (len == 0)
+		return (0);
+	if (start + len > s_len)
+	{
+		if (start > s_len)
+			return (0);
+		return (s_len - start);
+	}
+	else
+		return (len);
+}
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*subs;
+	char	*sb;
+	size_t	s_len;
 
 	if (s == NULL)
 		return (NULL);
-	if (start >= ft_strlen(s) || len == SIZE_MAX)
-		return ((char *)ft_calloc(sizeof(char), 1));
-	subs = (char *)ft_calloc(sizeof(char), len + 1);
-	if (subs == NULL)
+	s_len = get_len(ft_strlen(s), start, len);
+	if (len == 0)
+		return ((char *)ft_calloc(1, sizeof(char)));
+	sb = (char *)ft_calloc(len + 1, sizeof(char));
+	if (sb == NULL)
 		return (NULL);
-	ft_strlcpy(subs, s + start, len + 1);
-	return (subs);
+	ft_strlcpy(sb, s + start, len + 1);
+	return (sb);
 }

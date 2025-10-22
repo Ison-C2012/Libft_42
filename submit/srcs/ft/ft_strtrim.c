@@ -6,50 +6,64 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 11:43:16 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/20 19:12:11 by keitotak         ###   ########.fr       */
+/*   Updated: 2025/10/22 22:52:07 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	get_len_tr(const char *s, const char *set)
+static size_t	strlen_set(char const *s1, char const *set)
 {
-	size_t	cnt;
+	size_t	len;
 
-	cnt = 0;
-	while (*s)
+	len = 0;
+	while (s1[len] && ft_strchr(set, s1[len]) == NULL)
+		len++;
+	return (len);
+}
+
+/*
+static size_t	get_len(const char *s1, const char *set)
+{
+	size_t	len;
+
+	len = 0;
+	while (*s1)
 	{
-		if (ft_strncmp(s, set, ft_strlen(set)) == 0)
-		{
-			cnt++;
-			s += ft_strlen(set);
-		}
-		else
-			s++;
+		len += strlen_set(s1, set);
+		s1 += strlen_set(s1, set);
+		while (ft_strchr(set, *s1))
+			s1++;
 	}
-	return (ft_strlen(s) - ft_strlen(set) * cnt);
+	return (len);
+}
+*/
+
+static size_t	get_len(const char *s1, const char *set)
+{
+	size_t	len;
+
+	len = 0;
+	while (*s1)
+	{
+		if (ft_strchr(set, *s1) == NULL)
+			len++;
+		s1++;
+	}
+	return (len);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*tr;
-	size_t	tr_len;
-	size_t	j;
+	size_t	len;
+	size_t	size;
 
 	if (s1 == NULL || set == NULL)
 		return (NULL);
-	tr_len = get_len_tr(s1, set);
-	tr = (char *)malloc(sizeof(char) * (tr_len + 1));
-	if (tr == NULL)
-		return (NULL);
-	j = 0;
-	while (tr_len--)
-	{
-		if (ft_strncmp(s1, set, ft_strlen(set)))
-			tr[j] = *s1++;
-		else
-			s1 += ft_strlen(set);
-		j++;
-	}
-	return (tr);
+	if (*s1 == '\0')
+		return (ft_calloc(1, sizeof(char)));
+	if (*set == '\0')
+		return (ft_strdup(s1));
+
 }

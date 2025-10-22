@@ -6,13 +6,15 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 19:46:52 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/20 14:19:27 by keitotak         ###   ########.fr       */
+/*   Updated: 2025/10/22 19:06:52 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	get_size_nb(int n)
+
+
+static size_t	get_len_nb(int n)
 {
 	size_t	s;
 
@@ -36,23 +38,29 @@ char	*ft_itoa(int n)
 {
 	char	*nb;
 	long	nbr;
-	size_t	size;
+	size_t	len;
 	size_t	i;
 
-	size = get_size_nb(n);
-	nb = (char *)malloc(sizeof(char) * (size + 1));
+	len = get_len_nb(n);
+	nb = (char *)ft_calloc(len + 1, sizeof(char));
+	if (nb == NULL)
+		return (NULL);
 	nbr = (long)n;
+	i = 0;
 	if (nbr < 0)
 	{
-		nb[0] = '-';
+		*nb = '-';
 		nbr *= -1;
-		size--;
+		i++;
 	}
-	i = 0;
-	while (i < size)
+	nb += len;
+	*nb-- = '\0';
+	while (i < len)
 	{
-		nb[size - i] = (n % 10);
-		n /= 10;
+		*nb = '0' + (nbr % 10);
+		nbr /= 10;
+		nb--;
+		i++;
 	}
 	return (nb);
 }

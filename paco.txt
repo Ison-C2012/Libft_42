@@ -1,1 +1,0 @@
-Failed tests: ft_strnstr, ft_memcpy, ft_strtrim, libft-unit-test, strchr, strrchr, split, strncmp, ft_strlcpy, putnbr_fd, strlcat, ft_itoa, memmove, strlcpy, substr, ft_memmove, atoi, ft_putnbr_fd, strnstr, ft_atoi, ft_strchr, itoa, calloc, ft_strlcat, ft_substr, ft_split, strmapi, ft_strrchr, strtrim
