@@ -6,7 +6,7 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 12:59:58 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/23 03:24:48 by keitotak         ###   ########.fr       */
+/*   Updated: 2025/10/23 04:00:09 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,27 +47,6 @@ static char	**ft_free(char **s)
 	return (NULL);
 }
 
-static size_t	ft_strlen_c(const char *s, char c)
-{
-	size_t	len;
-
-	len = 0;
-	while (s[len] && s[len] != c)
-		len++;
-	return (len);
-}
-
-static char	*ft_strndup(const char *s, size_t n)
-{
-	char	*d;
-
-	d = (char *)ft_calloc(sizeof(char), n + 1);
-	if (d == NULL)
-		return (NULL);
-	ft_strlcpy(d, s, n + 1);
-	return (d);
-}
-
 char	**ft_split(char const *s, char c)
 {
 	char	**sp;
@@ -77,7 +56,7 @@ char	**ft_split(char const *s, char c)
 	if (s == NULL)
 		return (NULL);
 	wcnt = word_count(s, c);
-	sp = (char **)ft_calloc(sizeof(char), wcnt + 1);
+	sp = (char **)ft_calloc(wcnt + 1, sizeof(char));
 	if (sp == NULL)
 		return (NULL);
 	i = 0;
@@ -87,10 +66,12 @@ char	**ft_split(char const *s, char c)
 			s++;
 		else
 		{
-			sp[i] = ft_strndup(s, ft_strlen_c(s, c));
+			
+			sp[i] = ft_substr(s, 0, ft_strchr(s, c) - s);
 			if (sp[i] == NULL)
 				return (ft_free(sp));
-			s += ft_strlen_c(s, c);
+			s += ft_strchr(s, c) - s;
+			i++;
 		}
 	}
 	sp[i] = NULL;
