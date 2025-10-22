@@ -29,13 +29,37 @@ int	main(void)
 	free(set);
 
 	str = strdup("abc");
+	set = strdup("a");
+	printf("%s\t%s\t%s\n", str, set, ft_strtrim(str, set));
+	free(str);
+	free(set);
+
+	str = strdup("abc");
 	set = strdup("b");
 	printf("%s\t%s\t%s\n", str, set, ft_strtrim(str, set));
 	free(str);
 	free(set);
 
 	str = strdup("abc");
-	set = strdup("bcd");
+	set = strdup("c");
+	printf("%s\t%s\t%s\n", str, set, ft_strtrim(str, set));
+	free(str);
+	free(set);
+
+	str = strdup("abc");
+	set = strdup("ac");
+	printf("%s\t%s\t%s\n", str, set, ft_strtrim(str, set));
+	free(str);
+	free(set);
+
+	str = strdup("abc");
+	set = strdup("ca");
+	printf("%s\t%s\t%s\n", str, set, ft_strtrim(str, set));
+	free(str);
+	free(set);
+
+	str = strdup("abc");
+	set = strdup("abc");
 	printf("%s\t%s\t%s\n", str, set, ft_strtrim(str, set));
 	free(str);
 	free(set);

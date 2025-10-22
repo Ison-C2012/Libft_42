@@ -6,7 +6,7 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 11:10:42 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/22 21:45:20 by keitotak         ###   ########.fr       */
+/*   Updated: 2025/10/23 02:13:46 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (s == NULL)
 		return (NULL);
 	s_len = get_len(ft_strlen(s), start, len);
-	if (len == 0)
+	if (s_len == 0)
 		return ((char *)ft_calloc(1, sizeof(char)));
-	sb = (char *)ft_calloc(len + 1, sizeof(char));
+	sb = (char *)ft_calloc(s_len + 1, sizeof(char));
 	if (sb == NULL)
 		return (NULL);
-	ft_strlcpy(sb, s + start, len + 1);
+	ft_strlcpy(sb, s + start, s_len + 1);
 	return (sb);
 }
