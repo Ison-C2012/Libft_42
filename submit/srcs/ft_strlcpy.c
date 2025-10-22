@@ -6,7 +6,7 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 12:02:08 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/19 00:56:10 by keitotak         ###   ########.fr       */
+/*   Updated: 2025/10/22 08:26:07 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 
 	i = 0;
 	src_len = ft_strlen(src);
-	while (src[i] && i < size)
+	if (size == 0)
+		return (src_len);
+	while (src[i] && i < size - 1)
 	{
 		dst[i] = src[i];
 		i++;
