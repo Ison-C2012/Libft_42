@@ -1,6 +1,6 @@
 NAME	:=	libft.a
 
-SRCDIR	:=	srcs/ft/
+SRCDIR	:=	srcs/
 OBJDIR	:=	objs
 INCDIR	:=	. 
 

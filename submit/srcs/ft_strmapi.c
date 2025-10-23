@@ -6,7 +6,7 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 14:04:02 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/23 18:32:48 by keitotak         ###   ########.fr       */
+/*   Updated: 2025/10/24 02:57:09 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,17 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*mp;
+	char	*str;
 	size_t	i;
 
-	mp = (char *)calloc(ft_strlen(s) + 1, sizeof(char));
-	if (mp == NULL)
+	str = (char *)calloc(ft_strlen(s) + 1, sizeof(char));
+	if (str == NULL)
 		return (NULL);
 	i = 0;
 	while (s[i])
 	{
-		mp[i] = f(i, s[i]);
+		str[i] = f(i, s[i]);
 		i++;
 	}
-	mp[i] = '\0';
-	return (mp);
+	return (str);
 }

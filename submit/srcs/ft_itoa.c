@@ -6,50 +6,57 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 19:46:52 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/23 05:28:51 by keitotak         ###   ########.fr       */
+/*   Updated: 2025/10/24 03:17:39 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	get_len(int n)
+static size_t	get_len(long n)
 {
-	size_t	s;
+	size_t	len;
 
-	s = 0;
+	len = 0;
 	if (n < 0)
-		s++;
-	while (n)
 	{
-		n /= 10;
-		s++;
+		n *= -1;
+		len += 1;
 	}
-	return (s);
+	while (n > 0)
+	{
+		len++;
+		n /= 10;
+	}
+	return (len);
+}
+
+static char	*get_str(char *str, long n)
+{
+	size_t	i;
+
+	i = get_len(n);
+	str[i--] = '\0';
+	if (n < 0)
+	{
+		n *= -1;
+		str[0] = '-';
+	}
+	while (n > 0)
+	{
+		str[i--] = '0' + (n % 10);
+		n /= 10;
+	}
+	return (str);
 }
 
 char	*ft_itoa(int n)
 {
 	char	*str;
-	long	nbr;
-	size_t	indent;
 
 	if (n == 0)
 		return (ft_strdup("0"));
-	str = (char *)ft_calloc(get_len(n) + 1, sizeof(char));
+	str = (char *)ft_calloc(get_len((long)n) + 1, sizeof(char));
 	if (str == NULL)
 		return (NULL);
-	nbr = (long)n;
-	indent = get_len(nbr);
-	str[indent--] = '\0';
-	if (nbr < 0)
-	{
-		nbr *= -1;
-		str[0] = '-';
-	}
-	while (nbr)
-	{
-		str[indent--] = '0' + (nbr % 10);
-		nbr /= 10;
-	}
-	return (str);
+	return (get_str(str, (long)n));
 }

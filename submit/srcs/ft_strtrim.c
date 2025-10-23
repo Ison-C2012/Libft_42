@@ -6,7 +6,7 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 11:43:16 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/23 02:24:25 by keitotak         ###   ########.fr       */
+/*   Updated: 2025/10/24 02:13:52 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	bgn;
 	size_t	end;
 
-	if (s1 == NULL || set == NULL)
-		return (NULL);
 	bgn = 0;
 	while (s1[bgn] && ft_strchr(set, s1[bgn]))
 		bgn++;

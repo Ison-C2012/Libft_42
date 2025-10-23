@@ -6,20 +6,17 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 12:59:58 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/23 21:51:55 by keitotak         ###   ########.fr       */
+/*   Updated: 2025/10/24 02:23:47 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	**ft_free(char **s)
+static char	**free_array(char **arr)
 {
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		free(s[i++]);
-	free(s);
+	while (*arr)
+		free(*arr++);
+	free(arr);
 	return (NULL);
 }
 
@@ -47,28 +44,28 @@ static size_t	word_count(char const *s, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	char	**sp;
-	size_t	wc;
+	char	**arr;
+	size_t	cnt;
 	size_t	len;
 	size_t	i;
 
-	wc = word_count(s, c);
-	sp = (char **)ft_calloc(wc + 1, sizeof(char *));
-	if (sp == NULL)
+	cnt = word_count(s, c);
+	arr = (char **)ft_calloc(cnt + 1, sizeof(char *));
+	if (arr == NULL)
 		return (NULL);
 	i = 0;
-	while (*s && i < wc)
+	while (*s && i < cnt)
 	{
 		len = 0;
 		while (*s && *s == c)
 			s++;
 		while (s[len] && s[len] != c)
 			len++;
-		sp[i] = ft_substr(s, 0, len);
-		if (sp[i] == NULL)
-			return (ft_free(sp));
+		arr[i] = ft_substr(s, 0, len);
+		if (arr[i] == NULL)
+			return (free_array(arr));
 		s += len;
 		i++;
 	}
-	return (sp);
+	return (arr);
 }

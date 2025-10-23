@@ -6,7 +6,7 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 22:43:36 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/21 21:14:35 by keitotak         ###   ########.fr       */
+/*   Updated: 2025/10/24 01:45:00 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ char	*ft_strrchr(const char *s, int c)
 {
 	size_t	s_len;
 
-	if (s == NULL)
-		return (NULL);
 	s_len = ft_strlen(s);
 	if ((char)c == '\0')
 		return ((char *)s + s_len);
