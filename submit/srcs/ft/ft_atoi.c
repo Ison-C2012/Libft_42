@@ -6,7 +6,7 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 00:53:36 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/22 14:37:33 by keitotak         ###   ########.fr       */
+/*   Updated: 2025/10/23 17:03:54 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	ft_issign(char c)
 
 static int	get_nb(const char *nptr)
 {
-	long	nb;
+	int		nb;
 	int		sg;
 
 	sg = 1;
@@ -41,10 +41,6 @@ static int	get_nb(const char *nptr)
 		nb += (*nptr - '0') * sg;
 		nptr++;
 	}
-	if (nb > INT_MAX)
-		return (INT_MAX);
-	if (nb < INT_MIN)
-		return (INT_MIN);
 	return ((int)nb);
 }
 
