@@ -6,7 +6,7 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 00:53:36 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/23 17:03:54 by keitotak         ###   ########.fr       */
+/*   Updated: 2025/10/23 22:57:48 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	get_nb(const char *nptr)
 	{
 		if (*nptr == '-')
 			sg *= -1;
-		nptr++;
+		nptr += 1;
 	}
 	nb = 0;
 	while (ft_isdigit(*nptr))
@@ -41,7 +41,7 @@ static int	get_nb(const char *nptr)
 		nb += (*nptr - '0') * sg;
 		nptr++;
 	}
-	return ((int)nb);
+	return (nb);
 }
 
 int	ft_atoi(const char *nptr)
@@ -54,6 +54,9 @@ int	ft_atoi(const char *nptr)
 }
 
 /*
-   how do you deal with greater nb than uint?
+   how do you deal with greater nb than int?
+   	the manual says atoi doesn't detect error.
+   	atoi works to deal with nbr_string as type of int.
    is is necessary to code ft to check overflow before it occurs?
+   	no. the nbr is dealed as int, and loop on int.
 */

@@ -1,0 +1,73 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	//
+$(NAME)	Makefile	/^$(NAME): $(OBJS)$/;"	t
+$(OBJDIR)/%.o	Makefile	/^$(OBJDIR)\/%.o: $(SRCDIR)\/%.c$/;"	t
+ARFLAGS	Makefile	/^ARFLAGS := rcs$/;"	m
+CC	Makefile	/^CC		:= cc$/;"	m
+CFLAGS	Makefile	/^CFLAGS	:= -Wall -Wextra -Werror$/;"	m
+INCDIR	Makefile	/^INCDIR	:=	. $/;"	m
+LIBFT_H	libft.h	/^# define LIBFT_H$/;"	d
+MKDIR	Makefile	/^MKDIR	:=	mkdir -p$/;"	m
+NAME	Makefile	/^NAME	:=	libft.a$/;"	m
+OBJDIR	Makefile	/^OBJDIR	:=	objs$/;"	m
+OBJS	Makefile	/^OBJS	:= $(SRCS:%.c=$(OBJDIR)\/%.o)$/;"	m
+SRCDIR	Makefile	/^SRCDIR	:=	srcs\/ft\/$/;"	m
+SRCS	Makefile	/^SRCS	:=	ft_isalpha.c \\$/;"	m
+all	Makefile	/^all: $(NAME)$/;"	t
+clean	Makefile	/^clean: $/;"	t
+content	libft.h	/^	void			*content;$/;"	m	struct:s_list	typeref:typename:void *
+fclean	Makefile	/^fclean: clean$/;"	t
+ft_atoi	srcs/ft_atoi.c	/^int	ft_atoi(const char *nptr)$/;"	f	typeref:typename:int
+ft_bzero	srcs/ft_bzero.c	/^void	ft_bzero(void *s, size_t n)$/;"	f	typeref:typename:void
+ft_calloc	srcs/ft_calloc.c	/^void	*ft_calloc(size_t nmemb, size_t size)$/;"	f	typeref:typename:void *
+ft_free	srcs/ft_split.c	/^static char	**ft_free(char **s)$/;"	f	typeref:typename:char **	file:
+ft_isalnum	srcs/ft_isalnum.c	/^int	ft_isalnum(int c)$/;"	f	typeref:typename:int
+ft_isalpha	srcs/ft_isalpha.c	/^int	ft_isalpha(int c)$/;"	f	typeref:typename:int
+ft_isascii	srcs/ft_isascii.c	/^int	ft_isascii(int c)$/;"	f	typeref:typename:int
+ft_isdigit	srcs/ft_isdigit.c	/^int	ft_isdigit(int c)$/;"	f	typeref:typename:int
+ft_islower	srcs/ft_isalpha.c	/^static int	ft_islower(int c)$/;"	f	typeref:typename:int	file:
+ft_islower	srcs/ft_toupper.c	/^static int	ft_islower(int c)$/;"	f	typeref:typename:int	file:
+ft_isprint	srcs/ft_isprint.c	/^int	ft_isprint(int c)$/;"	f	typeref:typename:int
+ft_issign	srcs/ft_atoi.c	/^static int	ft_issign(char c)$/;"	f	typeref:typename:int	file:
+ft_isspace	srcs/ft_atoi.c	/^static int	ft_isspace(char c)$/;"	f	typeref:typename:int	file:
+ft_isupper	srcs/ft_isalpha.c	/^static int	ft_isupper(int c)$/;"	f	typeref:typename:int	file:
+ft_isupper	srcs/ft_tolower.c	/^static int	ft_isupper(int c)$/;"	f	typeref:typename:int	file:
+ft_itoa	srcs/ft_itoa.c	/^char	*ft_itoa(int n)$/;"	f	typeref:typename:char *
+ft_memchr	srcs/ft_memchr.c	/^void	*ft_memchr(const void *s, int c, size_t n)$/;"	f	typeref:typename:void *
+ft_memcmp	srcs/ft_memcmp.c	/^int	ft_memcmp(const void *s1, const void *s2, size_t n)$/;"	f	typeref:typename:int
+ft_memcpy	srcs/ft_memcpy.c	/^void	*ft_memcpy(void *dest, const void *src, size_t n)$/;"	f	typeref:typename:void *
+ft_memmove	srcs/ft_memmove.c	/^void	*ft_memmove(void *dest, const void *src, size_t n)$/;"	f	typeref:typename:void *
+ft_memset	srcs/ft_memset.c	/^void	*ft_memset(void *s, int c, size_t n)$/;"	f	typeref:typename:void *
+ft_putchar_fd	srcs/ft_putchar_fd.c	/^void	ft_putchar_fd(char c, int fd)$/;"	f	typeref:typename:void
+ft_putendl_fd	srcs/ft_putendl_fd.c	/^void	ft_putendl_fd(char *s, int fd)$/;"	f	typeref:typename:void
+ft_putnbr_fd	srcs/ft_putnbr_fd.c	/^void	ft_putnbr_fd(int n, int fd)$/;"	f	typeref:typename:void
+ft_putstr_fd	srcs/ft_putstr_fd.c	/^void	ft_putstr_fd(char *s, int fd)$/;"	f	typeref:typename:void
+ft_split	srcs/ft_split.c	/^char	**ft_split(char const *s, char c)$/;"	f	typeref:typename:char **
+ft_strchr	srcs/ft_strchr.c	/^char	*ft_strchr(const char *s, int c)$/;"	f	typeref:typename:char *
+ft_strdup	srcs/ft_strdup.c	/^char	*ft_strdup(const char *s)$/;"	f	typeref:typename:char *
+ft_striteri	srcs/ft_striteri.c	/^void	ft_striteri(char *s, void (*f)(unsigned int, char*))$/;"	f	typeref:typename:void
+ft_strjoin	srcs/ft_strjoin.c	/^char	*ft_strjoin(char const *s1, char const *s2)$/;"	f	typeref:typename:char *
+ft_strlcat	srcs/ft_strlcat.c	/^size_t	ft_strlcat(char *dst, const char *src, size_t size)$/;"	f	typeref:typename:size_t
+ft_strlcpy	srcs/ft_strlcpy.c	/^size_t	ft_strlcpy(char *dst, const char *src, size_t size)$/;"	f	typeref:typename:size_t
+ft_strlen	srcs/ft_strlen.c	/^size_t	ft_strlen(const char *s)$/;"	f	typeref:typename:size_t
+ft_strmapi	srcs/ft_strmapi.c	/^char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))$/;"	f	typeref:typename:char *
+ft_strncmp	srcs/ft_strncmp.c	/^int	ft_strncmp(const char *s1, const char *s2, size_t n)$/;"	f	typeref:typename:int
+ft_strnstr	srcs/ft_strnstr.c	/^char	*ft_strnstr(const char *big, const char *little, size_t len)$/;"	f	typeref:typename:char *
+ft_strrchr	srcs/ft_strrchr.c	/^char	*ft_strrchr(const char *s, int c)$/;"	f	typeref:typename:char *
+ft_strtrim	srcs/ft_strtrim.c	/^char	*ft_strtrim(char const *s1, char const *set)$/;"	f	typeref:typename:char *
+ft_substr	srcs/ft_substr.c	/^char	*ft_substr(char const *s, unsigned int start, size_t len)$/;"	f	typeref:typename:char *
+ft_tolower	srcs/ft_tolower.c	/^int	ft_tolower(int c)$/;"	f	typeref:typename:int
+ft_toupper	srcs/ft_toupper.c	/^int	ft_toupper(int c)$/;"	f	typeref:typename:int
+get_len	srcs/ft_itoa.c	/^static size_t	get_len(int n)$/;"	f	typeref:typename:size_t	file:
+get_len	srcs/ft_substr.c	/^static size_t	get_len(size_t s_len, unsigned int start, size_t len)$/;"	f	typeref:typename:size_t	file:
+get_nb	srcs/ft_atoi.c	/^static int	get_nb(const char *nptr)$/;"	f	typeref:typename:int	file:
+next	libft.h	/^	struct s_list	*next;$/;"	m	struct:s_list	typeref:struct:s_list *
+re	Makefile	/^re: fclean all$/;"	t
+s_list	libft.h	/^typedef struct s_list$/;"	s
+t_list	libft.h	/^}				t_list;$/;"	t	typeref:struct:s_list
+word_count	srcs/ft_split.c	/^static size_t	word_count(char const *s, char c)$/;"	f	typeref:typename:size_t	file:
