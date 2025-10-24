@@ -1,6 +1,6 @@
 NAME	:=	libft.a
 
-SRCDIR	:=	srcs/
+SRCDIR	:=	srcs
 OBJDIR	:=	objs
 INCDIR	:=	. 
 
@@ -44,7 +44,7 @@ OBJS	:= $(SRCS:%.c=$(OBJDIR)/%.o)
 CC		:= cc
 CFLAGS	:= -Wall -Wextra -Werror
 ARFLAGS := rcs
-MKDIR	:=	mkdir -p
+MKDIR	:= mkdir -p
 
 all: $(NAME)
 
