@@ -6,7 +6,7 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 11:19:19 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/24 03:00:39 by keitotak         ###   ########.fr       */
+/*   Updated: 2025/10/24 16:03:57 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
-	j = (char *)calloc(s1_len + s2_len + 1, sizeof(char));
+	j = (char *)ft_calloc(s1_len + s2_len + 1, sizeof(char));
 	if (j == NULL)
 		return (NULL);
 	ft_strlcpy(j, s1, s1_len + 1);
