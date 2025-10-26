@@ -6,7 +6,7 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 00:53:36 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/23 22:57:48 by keitotak         ###   ########.fr       */
+/*   Updated: 2025/10/26 17:04:37 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,31 @@ static int	ft_issign(char c)
 	return (c == '+' || c == '-');
 }
 
+static long	check(long nb, int sg, char c)
+{
+	int	x;
+
+	x = c - '0';
+	if (sg >= 0)
+	{
+		if (nb > LONG_MAX / 10)
+			return (LONG_MAX);
+		if (nb * 10 > LONG_MAX - x * sg)
+			return (LONG_MAX);
+	}
+	else
+	{
+		if (nb < LONG_MIN / 10)
+			return ((int)LONG_MIN);
+		if (nb * 10 < LONG_MIN - x * sg)
+			return ((int)LONG_MIN);
+	}
+	return (nb * 10 + x * sg);
+}
+
 static int	get_nb(const char *nptr)
 {
-	int		nb;
+	long	nb;
 	int		sg;
 
 	sg = 1;
@@ -37,17 +59,16 @@ static int	get_nb(const char *nptr)
 	nb = 0;
 	while (ft_isdigit(*nptr))
 	{
-		nb *= 10;
-		nb += (*nptr - '0') * sg;
+		nb = check(nb, sg, *nptr);
+		if (nb == LONG_MAX || nb == LONG_MIN)
+			return ((int)nb);
 		nptr++;
 	}
-	return (nb);
+	return ((int)nb);
 }
 
 int	ft_atoi(const char *nptr)
 {
-	if (nptr == NULL)
-		return (0);
 	while (ft_isspace(*nptr))
 		nptr++;
 	return (get_nb(nptr));
