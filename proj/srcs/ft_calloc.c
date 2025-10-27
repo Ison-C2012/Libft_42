@@ -6,7 +6,7 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 21:51:17 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/24 01:17:42 by keitotak         ###   ########.fr       */
+/*   Updated: 2025/10/27 23:08:28 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	size_t	m_size;
 
 	if (nmemb == 0 || size == 0)
-		return (NULL);
-	if (nmemb > ULONG_MAX / size)
+		return (ft_calloc(1, 1));
+	if (nmemb > SIZE_MAX / size)
 		return (NULL);
 	m_size = nmemb * size;
 	mem = malloc(m_size);

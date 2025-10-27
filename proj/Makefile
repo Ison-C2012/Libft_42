@@ -41,6 +41,7 @@ SRCS	:=	ft_isalpha.c \
 
 OBJS	:= $(SRCS:%.c=$(OBJDIR)/%.o)
 
+AR		:= ar
 CC		:= cc
 CFLAGS	:= -Wall -Wextra -Werror
 ARFLAGS := rcs

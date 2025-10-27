@@ -6,7 +6,7 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 19:46:52 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/24 03:17:39 by keitotak         ###   ########.fr       */
+/*   Updated: 2025/10/27 16:26:43 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char	*ft_itoa(int n)
 
 	if (n == 0)
 		return (ft_strdup("0"));
-	str = (char *)ft_calloc(get_len((long)n) + 1, sizeof(char));
+	str = (char *)malloc((get_len((long)n) + 1) * sizeof(char));
 	if (str == NULL)
 		return (NULL);
 	return (get_str(str, (long)n));

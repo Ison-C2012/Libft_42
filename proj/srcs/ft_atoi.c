@@ -6,7 +6,7 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 00:53:36 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/26 17:04:37 by keitotak         ###   ########.fr       */
+/*   Updated: 2025/10/27 16:03:55 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ static long	check(long nb, int sg, char c)
 	else
 	{
 		if (nb < LONG_MIN / 10)
-			return ((int)LONG_MIN);
+			return (LONG_MIN);
 		if (nb * 10 < LONG_MIN - x * sg)
-			return ((int)LONG_MIN);
+			return (LONG_MIN);
 	}
 	return (nb * 10 + x * sg);
 }
