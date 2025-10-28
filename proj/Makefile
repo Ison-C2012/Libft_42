@@ -2,7 +2,7 @@ NAME	:=	libft.a
 
 INCDIR	:=	. 
 
-SRCDIR	:=	srcs
+SRCDIR	:=	.
 OBJDIR	:=	objs
 
 SRCS	:=	ft_isalpha.c \
@@ -42,28 +42,11 @@ SRCS	:=	ft_isalpha.c \
 
 OBJS	:= $(SRCS:%.c=$(OBJDIR)/%.o)
 
-BSRCDIR	:=	bonus
-BOBJDIR	:=	objs_bonus
-
-BSRC	:=	ft_lstnew_bonus.c \
-			ft_lstadd_front_bonus.c \
-			ft_lstsize_bonus.c \
-			ft_lstlast_bonus.c \
-			ft_lstadd_back_bonus.c \
-			ft_lstdelone_bonus.c \
-			ft_lstclear_bonus.c \
-			ft_lstiter_bonus.c \
-			ft_lstmap_bonus.c
-
-BOBJ	:= $(BSRC:%.c=$(BOBJDIR)/%.o)
-
 AR		:= ar
+ARFLAGS := rcs
 CC		:= cc
 CFLAGS	:= -Wall -Wextra -Werror
-ARFLAGS := rcs
 MKDIR	:= mkdir -p
-
-all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(AR) $(ARFLAGS) $@ $?
@@ -72,12 +55,7 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	$(MKDIR) $(dir $@)
 	$(CC) $(CFLAGS) -I $(INCDIR) -c $< -o $@
 
-bonus: $(BOBJ)
-	$(AR) $(ARFLAGS) $(NAME) $?
-
-$(BOBJDIR)/%.o: $(BSRCDIR)/%.c
-	$(MKDIR) $(dir $@)
-	$(CC) $(CFLAGS) -I $(INCDIR) -c $< -o $@
+all: $(NAME)
 
 clean: 
 	rm -rf $(OBJDIR)

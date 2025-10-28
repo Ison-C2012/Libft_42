@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/26 17:53:59 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/26 17:55:13 by keitotak         ###   ########.fr       */
+/*   Created: 2025/10/26 18:56:46 by keitotak          #+#    #+#             */
+/*   Updated: 2025/10/28 21:55:35 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-t_list	*ft_lstlast(t_list *lst)
+#include "libft_bonus.h"
+
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	while (lst->next != NULL)
-		lst = lst->next;
-	return (lst);
+	t_list	*tmp;
+
+	while (lst != NULL)
+	{
+		tmp = *lst;
+		ft_lstdelone(*lst, del);
+		*lst = tmp->next;
+	}
+	lst = NULL;
 }

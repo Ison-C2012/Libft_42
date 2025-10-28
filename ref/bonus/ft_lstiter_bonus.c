@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/26 19:22:17 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/27 15:39:08 by keitotak         ###   ########.fr       */
+/*   Created: 2025/10/26 19:15:51 by keitotak          #+#    #+#             */
+/*   Updated: 2025/10/28 21:51:42 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
-{
-	size_t	size;
+#include "libft_bonus.h"
 
-	size = ft_lstsize(lst);
-	while (lst->next != NULL)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	while (lst != NULL)
 	{
-		lst = f(lst);
+		f(lst->content);
+		lst = lst->next;
 	}
 }

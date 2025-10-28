@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/26 17:55:27 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/26 17:59:13 by keitotak         ###   ########.fr       */
+/*   Created: 2025/10/26 19:22:17 by keitotak          #+#    #+#             */
+/*   Updated: 2025/10/28 22:01:27 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
-{
-	t_list	*last;
+#include "libft_bonus.h"
 
-	last = ft_lstlast(lst);
-	last->next = new;
-	new->next = NULL;
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+{
+	t_list	*tmp;
+
+	tmp = lst;
+	while (lst != NULL)
+	{
+		tmp = lst;
+		lst->content = f(lst->content);
+		if (lst->content == NULL)
+			del(lst);
+		lst = tmp->next;
+	}
+	return (lst);
 }
