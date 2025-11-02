@@ -1,8 +1,8 @@
 NAME	:=	libft.a
 
-INCDIR	:=	. 
+INCDIR	:=	includes
 
-SRCDIR	:=	.
+SRCDIR	:=	srcs
 OBJDIR	:=	objs
 
 SRCS	:=	ft_isalpha.c \

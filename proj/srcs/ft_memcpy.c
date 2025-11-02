@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/16 21:51:17 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/27 23:08:28 by keitotak         ###   ########.fr       */
+/*   Created: 2025/10/17 19:50:21 by keitotak          #+#    #+#             */
+/*   Updated: 2025/11/02 21:25:30 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	void	*mem;
-	size_t	m_size;
+	unsigned char		*d;
+	const unsigned char	*s;
+	size_t				i;
 
-	if (nmemb == 0 || size == 0)
-		return (ft_calloc(1, 1));
-	if (nmemb > SIZE_MAX / size)
-		return (NULL);
-	m_size = nmemb * size;
-	mem = malloc(m_size);
-	if (mem == NULL)
-		return (NULL);
-	ft_bzero(mem, m_size);
-	return (mem);
+	if (dest == src || src == NULL)
+		return (dest);
+	d = (unsigned char *)dest;
+	s= (const unsigned char *)src;
+	i = 0;
+	while (i < n)
+	{
+		d[i] = s[i];
+		i++;
+	}
+	return (dest);
 }
+
+/*
+   no matter src_size. n is matter.
+   iteration must be increment.
+*/

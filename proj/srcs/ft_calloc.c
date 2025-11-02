@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 19:31:00 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/24 01:49:31 by keitotak         ###   ########.fr       */
+/*   Created: 2025/10/16 21:51:17 by keitotak          #+#    #+#             */
+/*   Updated: 2025/11/02 21:17:51 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	unsigned char	*ptr;
+	void	*mem;
+	size_t	m_size;
 
-	ptr = (unsigned char *)s;
-	while (n--)
-	{
-		if (*ptr == (unsigned char)c)
-			return (ptr);
-		ptr++;
-	}
-	return (NULL);
+	if (nmemb == 0 || size == 0)
+		return (malloc(0));
+	if (nmemb > SIZE_MAX / size)
+		return (NULL);
+	m_size = nmemb * size;
+	mem = malloc(m_size);
+	if (mem == NULL)
+		return (NULL);
+	ft_bzero(mem, m_size);
+	return (mem);
 }

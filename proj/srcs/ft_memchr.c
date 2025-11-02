@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 19:50:21 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/27 15:46:49 by keitotak         ###   ########.fr       */
+/*   Created: 2025/10/17 19:31:00 by keitotak          #+#    #+#             */
+/*   Updated: 2025/11/02 21:20:38 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned char		*d;
-	const unsigned char	*s;
-	size_t				i;
+	const unsigned char	*ptr= (const unsigned char *)s;
 
-	if (dest == src || src == NULL)
-		return (dest);
-	d = (unsigned char *)dest;
-	s = (const unsigned char *)src;
-	i = 0;
-	while (i < n)
+	while (n--)
 	{
-		d[i] = s[i];
-		i++;
+		if (*ptr == (unsigned char)c)
+			return (ptr);
+		ptr++;
 	}
-	return (dest);
+	return (NULL);
 }
-
-/*
-   no matter src_size. n is matter.
-   iteration must be increment.
-*/

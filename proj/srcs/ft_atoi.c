@@ -6,7 +6,7 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 00:53:36 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/27 16:03:55 by keitotak         ###   ########.fr       */
+/*   Updated: 2025/11/02 21:16:44 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,13 @@ static long	check(long nb, int sg, char c)
 	return (nb * 10 + x * sg);
 }
 
-static int	get_nb(const char *nptr)
+int	ft_atoi(const char *nptr)
 {
 	long	nb;
 	int		sg;
 
+	while (ft_isspace(*nptr))
+		nptr++;
 	sg = 1;
 	if (ft_issign(*nptr))
 	{
@@ -65,13 +67,6 @@ static int	get_nb(const char *nptr)
 		nptr++;
 	}
 	return ((int)nb);
-}
-
-int	ft_atoi(const char *nptr)
-{
-	while (ft_isspace(*nptr))
-		nptr++;
-	return (get_nb(nptr));
 }
 
 /*

@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
+/*   By: keitotak <keitotak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/26 17:55:27 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/28 21:28:35 by keitotak         ###   ########.fr       */
+/*   Created: 2025/10/17 22:43:36 by keitotak          #+#    #+#             */
+/*   Updated: 2025/11/02 21:29:23 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
+#include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+char	*ft_strrchr(const char *s, int c)
 {
-	t_list	*last;
+	char	*ptr;
 
-	last = ft_lstlast(*lst);
-	last->next = new;
-	new->next = NULL;
+	ptr = NULL;
+	while (*s)
+	{
+		if (*s == (char)c)
+			ptr = s;
+		s++;
+	}
+	if (*s == (char)c)
+		ptr = s;
+	return (ptr);
 }
