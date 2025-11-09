@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
+/*   By: keitotak <keitotak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 19:31:00 by keitotak          #+#    #+#             */
-/*   Updated: 2025/11/09 13:58:39 by keitotak         ###   ########.fr       */
+/*   Created: 2025/11/09 13:46:26 by keitotak          #+#    #+#             */
+/*   Updated: 2025/11/09 13:46:33 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+int	ft_isspace(char c)
 {
-	unsigned char	*ptr;
-
-	ptr = (unsigned char *)s;
-	while (n--)
-	{
-		if (*ptr == (unsigned char)c)
-			return (ptr);
-		ptr++;
-	}
-	return (NULL);
+	return (c == ' ' || (c >= '\t' && c <= '\r'));
 }

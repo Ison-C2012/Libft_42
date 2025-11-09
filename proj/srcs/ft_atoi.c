@@ -6,16 +6,11 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 00:53:36 by keitotak          #+#    #+#             */
-/*   Updated: 2025/11/02 21:16:44 by keitotak         ###   ########.fr       */
+/*   Updated: 2025/11/09 13:58:54 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int	ft_isspace(char c)
-{
-	return (c == ' ' || (c >= '\t' && c <= '\r'));
-}
 
 static int	ft_issign(char c)
 {
@@ -68,11 +63,3 @@ int	ft_atoi(const char *nptr)
 	}
 	return ((int)nb);
 }
-
-/*
-   how do you deal with greater nb than int?
-   	the manual says atoi doesn't detect error.
-   	atoi works to deal with nbr_string as type of int.
-   is is necessary to code ft to check overflow before it occurs?
-   	no. the nbr is dealed as int, and loop on int.
-*/

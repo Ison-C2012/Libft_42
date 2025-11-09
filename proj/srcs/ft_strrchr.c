@@ -6,7 +6,7 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 22:43:36 by keitotak          #+#    #+#             */
-/*   Updated: 2025/11/02 21:29:23 by keitotak         ###   ########.fr       */
+/*   Updated: 2025/11/09 13:58:06 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ char	*ft_strrchr(const char *s, int c)
 	while (*s)
 	{
 		if (*s == (char)c)
-			ptr = s;
+			ptr = (char *)s;
 		s++;
 	}
 	if (*s == (char)c)
-		ptr = s;
+		ptr = (char *)s;
 	return (ptr);
 }
