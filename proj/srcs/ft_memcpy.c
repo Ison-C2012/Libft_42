@@ -6,7 +6,7 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 19:50:21 by keitotak          #+#    #+#             */
-/*   Updated: 2025/11/02 21:25:30 by keitotak         ###   ########.fr       */
+/*   Updated: 2025/11/13 20:01:26 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	if (dest == src || src == NULL)
 		return (dest);
 	d = (unsigned char *)dest;
-	s= (const unsigned char *)src;
+	s = (const unsigned char *)src;
 	i = 0;
 	while (i < n)
 	{
