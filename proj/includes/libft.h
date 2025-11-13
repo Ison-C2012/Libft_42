@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:19:02 by keitakah          #+#    #+#             */
-/*   Updated: 2025/10/28 22:19:10 by keitotak         ###   ########.fr       */
+/*   Updated: 2025/11/09 13:47:33 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,12 @@ void	ft_putnbr_fd(int n, int fd);
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
+
+// -------------------------------------------------------------
+
+int		ft_isupper(int c);
+int		ft_islower(int c);
+int		ft_isspace(char c);
 
 // -------------------------------------------------------------
 

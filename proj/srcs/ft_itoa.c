@@ -6,35 +6,32 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 19:46:52 by keitotak          #+#    #+#             */
-/*   Updated: 2025/11/02 21:18:59 by keitotak         ###   ########.fr       */
+/*   Updated: 2025/11/09 14:00:04 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	get_len(long n)
+static size_t	cnt_dgt(long n)
 {
-	size_t	len;
+	size_t	dgt;
 
-	len = 0;
+	dgt = 0;
 	if (n < 0)
-	{
 		n *= -1;
-		len += 1;
-	}
 	while (n > 0)
 	{
-		len++;
+		dgt++;
 		n /= 10;
 	}
-	return (len);
+	return (dgt);
 }
 
 static char	*get_str(char *str, long n)
 {
 	size_t	i;
 
-	i = get_len(n);
+	i = cnt_dgt(n) + (n < 0);
 	str[i--] = '\0';
 	if (n < 0)
 	{
@@ -52,10 +49,12 @@ static char	*get_str(char *str, long n)
 char	*ft_itoa(int n)
 {
 	char	*str;
+	size_t	len;
 
 	if (n == 0)
 		return (ft_strdup("0"));
-	str = (char *)malloc((get_len((long)n) + 1) * sizeof(char));
+	len = cnt_dgt((long)n) + (n < 0);
+	str = (char *)malloc((len + 1) * sizeof(char));
 	if (str == NULL)
 		return (NULL);
 	str = get_str(str, (long)n);
