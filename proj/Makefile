@@ -43,13 +43,26 @@ SRCS	:=	ft_isalpha.c \
 			ft_putendl_fd.c \
 			ft_putnbr_fd.c
 
+BSRCS	=	ft_lstadd_back_bonus.c \
+			ft_lstadd_front_bonus.c \
+			ft_lstclear_bonus.c \
+			ft_lstdelone_bonus.c \
+			ft_lstiter_bonus.c \
+			ft_lstlast_bonus.c \
+			ft_lstmap_bonus.c \
+			ft_lstnew_bonus.c \
+			ft_lstsize_bonus.c
+
 OBJS	:= $(SRCS:%.c=$(OBJDIR)/%.o)
+BOBJS	:= $(BSRCS:%.c=$(OBJDIR)/%.o)
 
 AR		:= ar
 ARFLAGS := rcs
 CC		:= cc
 CFLAGS	:= -Wall -Wextra -Werror
 MKDIR	:= mkdir -p
+
+all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(AR) $(ARFLAGS) $@ $?
@@ -58,7 +71,8 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	$(MKDIR) $(dir $@)
 	$(CC) $(CFLAGS) -I $(INCDIR) -c $< -o $@
 
-all: $(NAME)
+bonus: $(BOBJS)
+	$(AR) $(ARFLAGS) $(NAME) $?
 
 clean: 
 	rm -rf $(OBJDIR)
