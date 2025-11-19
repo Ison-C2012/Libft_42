@@ -6,7 +6,7 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 19:31:00 by keitotak          #+#    #+#             */
-/*   Updated: 2025/11/13 13:21:05 by keitotak         ###   ########.fr       */
+/*   Updated: 2025/11/19 10:41:29 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,8 @@
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char	*ptr;
-<<<<<<< HEAD
-	
-	ptr= (unsigned char *)s;
-=======
 
 	ptr = (unsigned char *)s;
->>>>>>> 7350a44dbcb48261c40871dbc8f4931035f38024
 	while (n--)
 	{
 		if (*ptr == (unsigned char)c)
