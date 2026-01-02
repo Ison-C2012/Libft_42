@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 21:19:02 by keitakah          #+#    #+#             */
-/*   Updated: 2025/11/09 13:47:33 by keitotak         ###   ########.fr       */
+/*   Updated: 2026/01/02 23:33:50 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,14 @@
 # include <unistd.h>
 # include <limits.h>
 # include <stdint.h>
+
+// -------------------------------------------------------------
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 // -------------------------------------------------------------
 
@@ -59,9 +67,15 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size);
 
 // -------------------------------------------------------------
 
-int		ft_isupper(int c);
-int		ft_islower(int c);
-int		ft_isspace(char c);
+int		ft_lstsize(t_list *lst);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstdelone(t_list *lst, void (*del)(void*));
+void	ft_lstclear(t_list **lst, void (*del)(void*));
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+t_list	*ft_lstnew(void *content);
+t_list	*ft_lstlast(t_list *lst);
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 // -------------------------------------------------------------
 

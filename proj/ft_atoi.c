@@ -6,11 +6,16 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 00:53:36 by keitotak          #+#    #+#             */
-/*   Updated: 2025/11/09 13:58:54 by keitotak         ###   ########.fr       */
+/*   Updated: 2026/01/02 16:42:59 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static int	ft_isspace(char c)
+{
+	return (c == ' ' || (c >= '\t' && c <= '\r'));
+}
 
 static int	ft_issign(char c)
 {

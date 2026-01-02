@@ -1,17 +1,9 @@
 NAME	:=	libft.a
 
-INCDIR	:=	includes
-
-SRCDIR	:=	srcs
-OBJDIR	:=	objs
-
 SRCS	:=	ft_isalpha.c \
-			ft_isupper.c \
-			ft_islower.c \
 			ft_isdigit.c \
 			ft_isalnum.c \
 			ft_isascii.c \
-			ft_isspace.c \
 			ft_isprint.c \
 			ft_strlen.c \
 			ft_memset.c \
@@ -53,6 +45,7 @@ BSRCS	=	ft_lstadd_back_bonus.c \
 			ft_lstnew_bonus.c \
 			ft_lstsize_bonus.c
 
+OBJDIR	:= objs
 OBJS	:= $(SRCS:%.c=$(OBJDIR)/%.o)
 BOBJS	:= $(BSRCS:%.c=$(OBJDIR)/%.o)
 
@@ -60,25 +53,30 @@ AR		:= ar
 ARFLAGS := rcs
 CC		:= cc
 CFLAGS	:= -Wall -Wextra -Werror
-MKDIR	:= mkdir -p
+
+ifneq (, $(filter bonus, $(MAKECMDGOALS)))
+OBJS += $(BOBJS)
+endif
+
+$(NAME): $(OBJS)
+	$(AR) $(ARFLAGS) $@ $^
+
+$(OBJDIR)/%.o: %.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+goal:
+	echo $(MAKECMDGOALS)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(AR) $(ARFLAGS) $@ $?
-
-$(OBJDIR)/%.o: $(SRCDIR)/%.c
-	$(MKDIR) $(dir $@)
-	$(CC) $(CFLAGS) -I $(INCDIR) -c $< -o $@
-
-bonus: $(BOBJS)
-	$(AR) $(ARFLAGS) $(NAME) $?
+bonus: $(NAME)
 
 clean: 
-	rm -rf $(OBJDIR)
+	$(RM) -r $(OBJDIR)
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
 

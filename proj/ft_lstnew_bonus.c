@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isupper.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: keitotak <keitotak@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/09 13:41:56 by keitotak          #+#    #+#             */
-/*   Updated: 2025/11/09 13:43:05 by keitotak         ###   ########.fr       */
+/*   Created: 2025/10/26 17:09:28 by keitotak          #+#    #+#             */
+/*   Updated: 2026/01/02 23:38:35 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isupper(int c)
+t_list	*ft_lstnew(void *content)
 {
-	return (c >= 'A' && c <= 'Z');
+	t_list	*new;
+
+	new = (t_list *)malloc(1 * sizeof(t_list));
+	if (new == NULL)
+		return (NULL);
+	new->content = content;
+	new->next = (t_list *) NULL;
+	return (new);
 }

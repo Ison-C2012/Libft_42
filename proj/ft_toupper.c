@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isspace.c                                       :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: keitotak <keitotak@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/09 13:46:26 by keitotak          #+#    #+#             */
-/*   Updated: 2025/11/09 13:46:33 by keitotak         ###   ########.fr       */
+/*   Created: 2025/10/16 21:30:42 by keitotak          #+#    #+#             */
+/*   Updated: 2026/01/02 17:14:08 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isspace(char c)
+static int	ft_islower(int c)
 {
-	return (c == ' ' || (c >= '\t' && c <= '\r'));
+	return (c >= 'a' && c <= 'z');
+}
+
+int	ft_toupper(int c)
+{
+	if (ft_islower(c))
+		c += 'A' - 'a';
+	return (c);
 }

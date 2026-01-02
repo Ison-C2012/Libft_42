@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/26 17:55:27 by keitotak          #+#    #+#             */
-/*   Updated: 2025/11/13 10:56:47 by keitotak         ###   ########.fr       */
+/*   Created: 2025/10/26 17:53:59 by keitotak          #+#    #+#             */
+/*   Updated: 2025/10/28 21:13:51 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
+#include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*last;
-
-	last = ft_lstlast(*lst);
-	last->next = new;
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst);
 }

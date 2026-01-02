@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/26 17:53:59 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/28 21:13:51 by keitotak         ###   ########.fr       */
+/*   Created: 2025/10/16 20:25:07 by keitotak          #+#    #+#             */
+/*   Updated: 2026/01/02 16:42:21 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
+#include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+static int	ft_isupper(int c)
 {
-	while (lst->next != NULL)
-		lst = lst->next;
-	return (lst);
+	return (c >= 'A' && c <= 'Z');
+}
+
+static int	ft_islower(int c)
+{
+	return (c >= 'a' && c <= 'z');
+}
+
+int	ft_isalpha(int c)
+{
+	return (ft_isupper(c) || ft_islower(c));
 }
