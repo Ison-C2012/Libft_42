@@ -65,8 +65,8 @@ $(OBJDIR)/%.o: %.c
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-goal:
-	echo $(MAKECMDGOALS)
+# goal:
+# 	@echo $(MAKECMDGOALS)
 
 all: $(NAME)
 
@@ -80,4 +80,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re

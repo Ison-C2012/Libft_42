@@ -6,7 +6,7 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 17:53:59 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/28 21:13:51 by keitotak         ###   ########.fr       */
+/*   Updated: 2026/01/03 16:39:39 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	while (lst->next != NULL)
+	while (lst != NULL)
+	{
+		if (lst->next == NULL)
+			break ;
 		lst = lst->next;
+	}
 	return (lst);
 }

@@ -6,7 +6,7 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 17:16:58 by keitotak          #+#    #+#             */
-/*   Updated: 2026/01/02 23:32:51 by keitotak         ###   ########.fr       */
+/*   Updated: 2026/01/03 16:06:44 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int	ft_lstsize(t_list *lst)
 {
 	int	size;
 
-	size = 1;
-	while (lst->next != NULL)
+	size = 0;
+	while (lst != NULL)
 	{
 		size++;
 		lst = lst->next;

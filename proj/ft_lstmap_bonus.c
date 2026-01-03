@@ -6,7 +6,7 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 19:22:17 by keitotak          #+#    #+#             */
-/*   Updated: 2026/01/03 00:25:44 by keitotak         ###   ########.fr       */
+/*   Updated: 2026/01/03 18:40:08 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*map;
 	t_list	*new;
 
-	map = ft_lstnew(f(lst->content));
-	if (map == NULL)
-		return (NULL);
-	lst = lst->next;
+	map = NULL;
 	while (lst != NULL)
 	{
 		new = ft_lstnew(f(lst->content));
@@ -84,7 +81,7 @@ int	main(int argc, char **argv)
 	t_list	*map;
 	int		i;
 
-	lst = NULL;
+	lst = ft_lstnew(ft_strdup(""));
 	i = 0;
 	while (i + 1 < argc)
 	{

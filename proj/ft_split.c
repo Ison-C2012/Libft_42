@@ -6,7 +6,7 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 12:59:58 by keitotak          #+#    #+#             */
-/*   Updated: 2025/10/24 02:23:47 by keitotak         ###   ########.fr       */
+/*   Updated: 2026/01/03 16:01:14 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	while (*s && i < cnt)
 	{
-		len = 0;
 		while (*s && *s == c)
 			s++;
+		len = 0;
 		while (s[len] && s[len] != c)
 			len++;
 		arr[i] = ft_substr(s, 0, len);
