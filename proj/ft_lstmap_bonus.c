@@ -6,7 +6,7 @@
 /*   By: keitotak <keitotak@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 19:22:17 by keitotak          #+#    #+#             */
-/*   Updated: 2026/01/03 18:40:08 by keitotak         ###   ########.fr       */
+/*   Updated: 2026/01/04 16:30:36 by keitotak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,16 @@ char	*capital(char *str)
 	char	*cap;
 	size_t	i;
 
-	cap = (char *)malloc(ft_strlen(str));
+	cap = (char *)malloc(ft_strlen(str) + 1);
 	if (cap == NULL)
 		return (NULL);
 	i = 0;
 	while (str[i])
 	{
-		if (ft_islower(str[i]))
-			cap[i] = str[i] + 'A' - 'a';
-		else
-			cap[i] = str[i];
+		cap[i] = ft_toupper(str[i]);
 		i++;
 	}
+	cap[i] = '\0';
 	return (cap);
 }
 
@@ -81,7 +79,7 @@ int	main(int argc, char **argv)
 	t_list	*map;
 	int		i;
 
-	lst = ft_lstnew(ft_strdup(""));
+	lst = NULL;
 	i = 0;
 	while (i + 1 < argc)
 	{
